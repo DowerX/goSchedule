@@ -2,20 +2,22 @@ package store
 
 import (
 	"io/ioutil"
+	"time"
 
-	"github.com/DowerX/record/ec"
+	"github.com/dowerx/goSchedule/ec"
 	"gopkg.in/yaml.v2"
 )
 
 type TaskConfig struct {
 	Type    string
-	Command string
+	Command []string
 	Token   string
 }
 
 type Task struct {
 	Type string
-	Date int
+	From time.Time
+	To   time.Time
 }
 
 func LoadTaskConfigs(path string) []TaskConfig {
